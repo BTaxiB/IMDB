@@ -4,7 +4,6 @@ require_once('vendor/autoload.php');
 use Facebook\WebDriver\Remote\RemoteWebDriver as driver;
 use Facebook\WebDriver\WebDriverBy as LOCATE;
 use Facebook\WebDriver\WebDriverKeys as PRESS;
-use Facebook\WebDriver\WebDriverAction as ACTION;
 use Facebook\WebDriver\WebDriverExpectedCondition as CONDITION;
 
 ini_set('display_errors', 1);
@@ -17,12 +16,7 @@ error_reporting(E_ALL);
 $browser_type = "chrome";
 $port = "850";
 $host = "http://localhost:{$port}";
-$data = array(
-    'users' => array(),
-    'likes' => array(),
-    'titles' => array(),
-    'links' => array()
-);
+
 
 if ($browser_type == 'firefox') {
     $capabilities = Facebook\WebDriver\Remote\DesiredCapabilities::firefox();

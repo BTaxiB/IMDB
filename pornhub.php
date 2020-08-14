@@ -120,7 +120,7 @@ function collect_data($driver, $csv)
     fputcsv($csv, $array);
 }
 
-for ($i = 1; $i < 4; $i++) {
+for ($i = 1; $i < 25; $i++) {
     if ($driver->get("https://www.pornhub.com/video/search?search=anal&page={$i}")) {
         $driver->wait(10)->until(Condition::presenceOfAllElementsLocatedBy(Locate::cssSelector(".pagination3 .page_next")));
 
@@ -129,6 +129,5 @@ for ($i = 1; $i < 4; $i++) {
         }
 
         $driver->wait(10)->until(Condition::presenceOfAllElementsLocatedBy(Locate::cssSelector(".pagination3 .page_next")));
-        // collect_pages($driver, 1, $output);
     }
 }

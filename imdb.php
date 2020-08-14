@@ -116,8 +116,6 @@ sleep(1);
 
 //database insert
 if ($imdb->create()) {
-    echo "<script>
-          window.history.back();
-    </script>";
+    $driver->executeScript("window.history.back();");
 }
 

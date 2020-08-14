@@ -1,5 +1,5 @@
 # SeleniumTest
-IMDB Top Rated Scraping
+IMDB Top Rated Pornhub Scraping
 
 Requirements: 
 - XAMPP

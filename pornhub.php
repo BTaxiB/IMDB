@@ -127,5 +127,8 @@ for ($i = 1; $i < 25; $i++) {
             $driver->get("https://www.pornhub.com/video/search?search=anal&page={$p}");
         }
 
+        if($i==25) {
+            exit;
+        }
         $driver->wait(10)->until(Condition::presenceOfAllElementsLocatedBy(Locate::cssSelector(".pagination3 .page_next")));
 }

@@ -5,7 +5,8 @@ IMDB Top Rated Scraping
 - Connect to your database using XAMPP
 - start your browser driver
 - Start Website
-#There are three options: 
+
+There are three options: 
   - Scraping Inception movie found in google results
   - Scraping Top Rated movies (250) bellow 8.5 grade
   - Preview of Top Rated scraped data

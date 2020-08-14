@@ -78,7 +78,7 @@ require_once '../inc/controller.php';
     <div class="container-fluid col-6 d-flex justify-content-center">
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="/imdb">Home</a>
+            <a class="navbar-brand" href="/">Home</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -86,10 +86,13 @@ require_once '../inc/controller.php';
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/imdb/imdb.php">Scrape IMDb</a>
+                        <a class="nav-link" href="/imdb.php">Scrape IMDb</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/imdb/toprated.php">Scrape TopRated on IMDb</a>
+                        <a class="nav-link" href="/pornhub.php">Scrape Pornhub</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/toprated.php">Scrape TopRated on IMDb</a>
                     </li>
                 </ul>
             </div>

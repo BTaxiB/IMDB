@@ -23,6 +23,9 @@ require_once('inc/controller.php');
                         Top Rated Scrape
                     </th>
                     <th>
+                        Pornhub Scrape
+                    </th>
+                    <th>
                         Top Rated Preview
                     </th>
                 </tr>
@@ -34,6 +37,9 @@ require_once('inc/controller.php');
                     </td>
                     <td>
                         <a href="top_rated.php">Click here</a>
+                    </td>
+                    <td>
+                        <a href="pornhub.php">Click here</a>
                     </td>
                     <td>
                         <a href="toprated/index.php">Click here</a>

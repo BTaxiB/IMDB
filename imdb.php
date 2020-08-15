@@ -101,7 +101,7 @@ foreach ($stars as $s) {
 //formating 
 $s_format = str_replace(",See full cast & crew", ", ", $s_str);
 
-//assigning values to Imdb class
+//assigning values to Imdb object
 $imdb->writer = $writer->getText();
 $imdb->description = $desc->getText();
 $imdb->duration = $time->getText();

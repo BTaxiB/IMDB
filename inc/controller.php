@@ -1,7 +1,6 @@
 <?php
 //
 require_once 'Database.php';
-require 'Helper.php';
 require 'Imdb.php';
 require 'TopRated.php';
 

@@ -111,24 +111,30 @@ require_once '../inc/controller.php';
             <tbody>
                 <?php
                 $result = $top->getAll();
-                while ($row = $result->fetch()) {
-                    echo "<tr>
-                        <td>
-                            <img src='{$row['thumbnail']}'>
-                        </td>
-                        <td> 
-                            {$row['id']}. 
-                        </td>
-                        <td class='desc'>
-                            <a href='{$row['trailer']}' target='_blank'>
-                                 {$row['title']}
-                            </a>
-                            <span class='desctext'>{$row['description']}</span>
-                        </td>
-                        <td>
-                            {$row['grade']}
-                        </td>
-                    </tr>";
+                
+                $num = count($result);
+                if($num > 0){
+                    while ($row = $result->fetch()) {
+                        echo "<tr>
+                            <td>
+                                <img src='{$row['thumbnail']}'>
+                            </td>
+                            <td> 
+                                {$row['id']}. 
+                            </td>
+                            <td class='desc'>
+                                <a href='{$row['trailer']}' target='_blank'>
+                                     {$row['title']}
+                                </a>
+                                <span class='desctext'>{$row['description']}</span>
+                            </td>
+                            <td>
+                                {$row['grade']}
+                            </td>
+                        </tr>";
+                    }
+                } else {
+                    echo "No data found";
                 }
                 ?>
             </tbody>

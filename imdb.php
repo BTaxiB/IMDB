@@ -9,16 +9,19 @@ use Facebook\WebDriver\WebDriverKeys as PRESS;
 $browser_type = 'chrome';
 $host = 'http://localhost:850';
 
+switch ($browser_type) {
+    case 'firefox':
+        $capabilities = Facebook\WebDriver\Remote\DesiredCapabilities::firefox();
+        break;
 
-if ($browser_type == 'firefox') {
-    $capabilities = Facebook\WebDriver\Remote\DesiredCapabilities::firefox();
+    case 'chrome':
+        $capabilities = Facebook\WebDriver\Remote\DesiredCapabilities::chrome();
+        break;
+
+    default:
+        # code...
+        break;
 }
-
-if ($browser_type == 'chrome') {
-    $capabilities = Facebook\WebDriver\Remote\DesiredCapabilities::chrome();
-}
-
-
 
 $driver = DRIVER::create($host, $capabilities);
 

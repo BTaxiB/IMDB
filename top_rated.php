@@ -4,13 +4,14 @@ require_once('inc/controller.php');
 
 use Facebook\WebDriver\Remote\RemoteWebDriver as DRIVER;
 use Facebook\WebDriver\WebDriverBy as LOCATE;
-use Facebook\WebDriver\WebDriverKeys as PRESS;
 use Facebook\WebDriver\WebDriverExpectedCondition as CONDITION;
 
 $browser_type = "chrome";
+$host = "http://localhost";
 $port = "850";
-$host = "http://localhost:{$port}";
+$serve = "{$host}:{$port}";
 $go_back = "window.location.replace('http://localhost/imdb/modules/toprated/index.php');";
+
 set_time_limit(2000);
 
 if ($browser_type == 'firefox') {
@@ -21,7 +22,7 @@ if ($browser_type == 'chrome') {
     $capabilities = Facebook\WebDriver\Remote\DesiredCapabilities::chrome();
 }
 
-$driver = DRIVER::create($host, $capabilities);
+$driver = DRIVER::create($serve, $capabilities);
 
 $driver->manage()->timeouts()->implicitlyWait = 10;
 
@@ -150,10 +151,8 @@ foreach ($links as $l) {
 
         $top->create();
     }
-
+    
     if(!$l) {
-        echo "<script>
-            {$go_back};
-        </script>";
+        $driver->executeScript($go_back);
     }
 }

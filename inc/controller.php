@@ -1,5 +1,5 @@
 <?php
-//
+//require_once('vendor/autoload.php');
 require_once 'Database.php';
 require 'Imdb.php';
 require 'TopRated.php';
@@ -11,7 +11,6 @@ ini_set("error_reporting", E_ALL);
 
 // Load config (database credentials etc.)
 $cfg = parse_ini_file('config.ini.php');
-
 
 // Database init
 $db = new Database($cfg);

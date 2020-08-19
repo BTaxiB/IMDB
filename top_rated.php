@@ -1,21 +1,3 @@
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scraper</title>
-</head>
-
-<body>
-    <div class="container-fluid">
-        <h1>
-            This will take some time...
-        </h1>
-    </div>
-</body>
-
-</html>
-
 <?php
 require_once('vendor/autoload.php');
 require_once('inc/controller.php');
@@ -28,7 +10,7 @@ use Facebook\WebDriver\WebDriverExpectedCondition as CONDITION;
 $browser_type = "chrome";
 $port = "850";
 $host = "http://localhost:{$port}";
-
+$go_back = "window.location.replace('http://localhost/imdb/modules/toprated/index.php');";
 set_time_limit(2000);
 
 if ($browser_type == 'firefox') {
@@ -156,17 +138,7 @@ $links = [];
 
 // $i = 1;
 foreach ($movies as $m) {
-    // $grade = $driver->findElement(Locate::cssSelector(".lister-list tr:nth-child({$i}) .imdbRating"));
-
-    // $max = number_format(str_replace(",", ".", $grade->getAttribute("innerText")));
-
-    // if ($grade->getAttribute("innerText") > $max) {
         array_push($links, $m->getAttribute("href"));
-    // }
-    // $i++;
-    // $test = $driver->findElement(Locate::cssSelector(".ratingValue strong:nth-child"));
-    // $max = number_format(str_replace(",", ".", $test->getAttribute("innerText")));
-        // print_r($max);
 }
 
 foreach ($links as $l) {
@@ -182,7 +154,7 @@ foreach ($links as $l) {
 
     if(!$l) {
         echo "<script>
-            window.location.replace('http://localhost/imdb/modules/toprated/index.php');
+            window.location.replace({$go_back});
         </script>";
     }
 }

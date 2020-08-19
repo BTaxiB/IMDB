@@ -1,0 +1,60 @@
+  .desc {
+        position: relative;
+        display: inline-block;
+    }
+
+  .desc .desctext {
+      visibility: hidden;
+      width: 620px;
+      background-color: #555;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px 0;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      margin-left: -60px;
+      opacity: 0;
+      transition: opacity 0.3s;
+  }
+
+  .desc .desctext::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: #555 transparent transparent transparent;
+  }
+
+  .desc:hover .desctext {
+      visibility: visible;
+      opacity: 1;
+  }
+
+  img {
+      width: 70px;
+      height: 70px;
+  }
+
+  a {
+      text-decoration: none;
+  }
+
+  a:hover {
+      background-color: wheat;
+      text-decoration: none;
+      color: black;
+  }
+
+  .container-fluid {
+      flex-direction: column;
+  }
+
+  .text-muted {
+      margin-bottom: 5%;
+  }

@@ -10,69 +10,8 @@ require_once '../inc/controller.php';
     <title>Top Rated</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-<style>
-    .desc {
-        position: relative;
-        display: inline-block;
-    }
-
-    .desc .desctext {
-        visibility: hidden;
-        width: 620px;
-        background-color: #555;
-        color: #fff;
-        text-align: center;
-        border-radius: 6px;
-        padding: 5px 0;
-        position: absolute;
-        z-index: 1;
-        bottom: 125%;
-        left: 50%;
-        margin-left: -60px;
-        opacity: 0;
-        transition: opacity 0.3s;
-    }
-
-    .desc .desctext::after {
-        content: "";
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        margin-left: -5px;
-        border-width: 5px;
-        border-style: solid;
-        border-color: #555 transparent transparent transparent;
-    }
-
-    .desc:hover .desctext {
-        visibility: visible;
-        opacity: 1;
-    }
-
-    img {
-        width: 70px;
-        height: 70px;
-    }
-
-    a {
-        text-decoration: none;
-    }
-
-    a:hover {
-        background-color: wheat;
-        text-decoration: none;
-        color: black;
-    }
-
-    .container-fluid {
-        flex-direction: column;
-    }
-
-    .text-muted {
-        margin-bottom: 5%;
-    }
-</style>
 
 <body>
     <div class="container-fluid col-6 d-flex justify-content-center">

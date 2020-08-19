@@ -16,6 +16,7 @@ set_time_limit(2000);
 
 if ($browser_type == 'firefox') {
     $capabilities = Facebook\WebDriver\Remote\DesiredCapabilities::firefox();
+    system('chromedriver --port=', $retval);
 }
 
 if ($browser_type == 'chrome') {
@@ -30,34 +31,7 @@ $driver->manage()->window()->maximize();
 
 $driver->get('https://www.imdb.com/chart/top/?sort=rk,desc&mode=simple&page=1');
 
-function open_link($driver, $target, $selector)
-{
-    switch ($selector) {
-        case 'name':
-            $element = $driver->findElement(Locate::name($target));
-            break;
-
-        case 'class':
-            $element = $driver->findElement(Locate::className($target));
-            break;
-
-        case 'id':
-            $element = $driver->findElement(Locate::id($target));
-            break;
-
-        case 'css':
-            $element = $driver->findElement(Locate::cssSelector($target));
-            break;
-
-        default:
-            # code...
-            break;
-    }
-
-    $element->click();
-}
-
-function extract_movie($driver, $object)
+function extract_movie($driver, $object, $grade)
 {
     $driver->manage()->timeouts()->implicitlyWait = 10;
 
@@ -70,15 +44,17 @@ function extract_movie($driver, $object)
     $trailer = $driver->findElements(Locate::className("slate_button"));
 
     $num = count($trailer);
+    
     if ($num > 0) {
         foreach ($trailer as $t) {
             $object->trailer = $t->getAttribute('href');
         }
     }
+    
     $test = $driver->findElement(Locate::cssSelector(".ratingValue strong:nth-child(1)"));
     $max = number_format(str_replace(",", ".", $test->getText()), 1);
     
-    if ($max < 8.5) {
+    if ($max < $grade) {
 
         $grade = $driver->findElement(Locate::className("ratingValue"));
 
@@ -147,7 +123,7 @@ foreach ($links as $l) {
 
         $driver->wait(10)->until(Condition::presenceOfAllElementsLocatedBy(Locate::cssSelector('.article time')));
 
-        extract_movie($driver, $top);
+        extract_movie($driver, $top, 8.5);
 
         $top->create();
     }

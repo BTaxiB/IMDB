@@ -136,7 +136,6 @@ function extract_movie($driver, $object)
 $movies = $driver->findElements(Locate::cssSelector(".lister-list .titleColumn a"));
 $links = [];
 
-// $i = 1;
 foreach ($movies as $m) {
         array_push($links, $m->getAttribute("href"));
 }
@@ -154,7 +153,7 @@ foreach ($links as $l) {
 
     if(!$l) {
         echo "<script>
-            window.location.replace({$go_back});
+            {$go_back};
         </script>";
     }
 }

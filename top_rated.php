@@ -14,13 +14,18 @@ $go_back = "window.location.replace('http://localhost/imdb/modules/toprated/inde
 
 set_time_limit(2000);
 
-if ($browser_type == 'firefox') {
-    $capabilities = Facebook\WebDriver\Remote\DesiredCapabilities::firefox();
-    system('chromedriver --port=', $retval);
-}
+switch ($browser_type) {
+    case 'firefox':
+        $capabilities = Facebook\WebDriver\Remote\DesiredCapabilities::firefox();
+        break;
 
-if ($browser_type == 'chrome') {
-    $capabilities = Facebook\WebDriver\Remote\DesiredCapabilities::chrome();
+    case 'chrome':
+        $capabilities = Facebook\WebDriver\Remote\DesiredCapabilities::chrome();
+        break;
+
+    default:
+        # code...
+        break;
 }
 
 $driver = DRIVER::create($serve, $capabilities);
